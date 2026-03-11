@@ -1,0 +1,32 @@
+<section id="services" class="services-section" [attr.dir]="isRtl() ? 'rtl' : 'ltr'">
+  <div class="container">
+    <div class="section-header" dbAnimateOnScroll="fade-up">
+      <span class="section-badge">{{ 'SERVICES.BADGE' | translate }}</span>
+      <h2 class="section-title">{{ 'SERVICES.TITLE' | translate }}</h2>
+      <p class="section-description">{{ 'SERVICES.DESCRIPTION' | translate }}</p>
+    </div>
+
+    <div class="services-grid">
+      @for (service of services; track service.titleKey; let i = $index) {
+        <div
+          class="service-card"
+          [class.hovered]="hoveredIndex() === i"
+          (mouseenter)="hoveredIndex.set(i)"
+          (mouseleave)="hoveredIndex.set(null)"
+          dbAnimateOnScroll="fade-up"
+          [animationDelay]="i * 80"
+        >
+          <div class="service-icon-wrap" [style.--service-color]="service.color">
+            <i [class]="'bi ' + service.icon"></i>
+          </div>
+          <h3 class="service-title">{{ service.titleKey | translate }}</h3>
+          <p class="service-desc">{{ service.descKey | translate }}</p>
+          <div class="service-arrow">
+            <i class="bi bi-arrow-up-right"></i>
+          </div>
+          <div class="card-glow" [style.background]="service.color"></div>
+        </div>
+      }
+    </div>
+  </div>
+</section>

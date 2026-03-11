@@ -1,0 +1,102 @@
+<nav
+  class="navbar-wrapper"
+  [class.scrolled]="isScrolled()"
+  [attr.dir]="isRtl() ? 'rtl' : 'ltr'"
+  role="navigation"
+  aria-label="Main navigation"
+>
+  <div class="container">
+    <div class="navbar-inner">
+
+      <a
+        class="navbar-logo"
+        href="#home"
+        (click)="scrollToSection('#home')"
+        aria-label="Digital Bond - Home"
+      >
+        <div class="logo-icon">
+          <span class="logo-letter">D</span>
+          <span class="logo-letter accent">B</span>
+        </div>
+        <span class="logo-text">Digital<span class="accent">Bond</span></span>
+      </a>
+
+      <ul class="nav-links" role="list">
+        @for (link of navLinks(); track link.id) {
+          <li>
+            <a
+              class="nav-link"
+              [class.active]="activeSection() === link.id"
+              [href]="link.href"
+              (click)="scrollToSection(link.href); $event.preventDefault()"
+            >
+              {{ link.label | translate }}
+              <span class="link-indicator"></span>
+            </a>
+          </li>
+        }
+      </ul>
+      <div class="nav-actions">
+        <button
+          class="lang-btn"
+          (click)="toggleLanguage()"
+          [attr.aria-label]="'NAV.TOGGLE_LANG' | translate"
+          type="button"
+        >
+          <i class="bi bi-globe2"></i>
+          <span>{{ 'NAV.TOGGLE_LANG' | translate }}</span>
+        </button>
+
+        <a
+          class="btn-cta"
+          href="#contact"
+          (click)="scrollToSection('#contact'); $event.preventDefault()"
+        >
+          {{ 'NAV.CONTACT' | translate }}
+        </a>
+      </div>
+      <button
+        class="hamburger"
+        [class.open]="isMobileMenuOpen()"
+        (click)="toggleMobileMenu()"
+        [attr.aria-expanded]="isMobileMenuOpen()"
+        aria-controls="mobile-menu"
+        aria-label="Toggle mobile menu"
+        type="button"
+      >
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+  </div>
+  <div
+    id="mobile-menu"
+    class="mobile-menu"
+    [class.open]="isMobileMenuOpen()"
+    role="dialog"
+    aria-modal="true"
+  >
+    <ul class="mobile-nav-links" role="list">
+      @for (link of navLinks(); track link.id) {
+        <li>
+          <a
+            class="mobile-nav-link"
+            [class.active]="activeSection() === link.id"
+            [href]="link.href"
+            (click)="scrollToSection(link.href); $event.preventDefault()"
+          >
+            {{ link.label | translate }}
+          </a>
+        </li>
+      }
+    </ul>
+
+    <div class="mobile-actions">
+      <button class="lang-btn" (click)="toggleLanguage()" type="button">
+        <i class="bi bi-globe2"></i>
+        <span>{{ 'NAV.TOGGLE_LANG' | translate }}</span>
+      </button>
+    </div>
+  </div>
+</nav>

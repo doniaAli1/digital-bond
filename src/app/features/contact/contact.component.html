@@ -1,0 +1,173 @@
+<section id="contact" class="contact-section" [attr.dir]="isRtl() ? 'rtl' : 'ltr'">
+  <div class="contact-bg">
+    <div class="bg-circle"></div>
+  </div>
+
+  <div class="container">
+    <div class="contact-inner">
+      <div class="contact-info" dbAnimateOnScroll="fade-right">
+        <span class="section-badge">{{ 'CONTACT.BADGE' | translate }}</span>
+        <h2 class="section-title">
+          {{ 'CONTACT.TITLE' | translate }}
+          <span class="title-accent">{{ 'CONTACT.TITLE_ACCENT' | translate }}</span>
+        </h2>
+        <p class="section-description">{{ 'CONTACT.DESCRIPTION' | translate }}</p>
+
+        <div class="info-items">
+          <div class="info-item">
+            <div class="info-icon"><i class="bi bi-geo-alt-fill"></i></div>
+            <span>{{ 'FOOTER.ADDRESS' | translate }}</span>
+          </div>
+          <div class="info-item">
+            <div class="info-icon"><i class="bi bi-envelope-fill"></i></div>
+            <a href="mailto:hello@digitalbond.com">{{ 'FOOTER.EMAIL' | translate }}</a>
+          </div>
+          <div class="info-item">
+            <div class="info-icon"><i class="bi bi-telephone-fill"></i></div>
+            <a href="tel:+201000000000">{{ 'FOOTER.PHONE' | translate }}</a>
+          </div>
+        </div>
+
+        <div class="social-links">
+          <a href="#" class="social-link" aria-label="Facebook" target="_blank" rel="noopener noreferrer">
+            <i class="bi bi-facebook"></i>
+          </a>
+          <a href="#" class="social-link" aria-label="Instagram" target="_blank" rel="noopener noreferrer">
+            <i class="bi bi-instagram"></i>
+          </a>
+          <a href="#" class="social-link" aria-label="LinkedIn" target="_blank" rel="noopener noreferrer">
+            <i class="bi bi-linkedin"></i>
+          </a>
+          <a href="#" class="social-link" aria-label="Twitter/X" target="_blank" rel="noopener noreferrer">
+            <i class="bi bi-twitter-x"></i>
+          </a>
+        </div>
+      </div>
+
+      <div class="contact-form-wrap" dbAnimateOnScroll="fade-left" [animationDelay]="150">
+
+        @if (isSubmitted()) {
+          <div class="success-state">
+            <div class="success-icon"><i class="bi bi-check-circle-fill"></i></div>
+            <h3>{{ 'CONTACT.FORM.SUCCESS' | translate }}</h3>
+            <button class="btn-outline" (click)="resetForm()" type="button">Send Another</button>
+          </div>
+        } @else {
+          <form
+            [formGroup]="contactForm"
+            (ngSubmit)="onSubmit()"
+            class="contact-form"
+            novalidate
+          >
+            <div class="form-row">
+              <div class="form-group" [class.has-error]="isFieldInvalid('name')">
+                <label for="name">{{ 'CONTACT.FORM.NAME' | translate }}</label>
+                <input
+                  id="name"
+                  type="text"
+                  formControlName="name"
+                  [placeholder]="'CONTACT.FORM.NAME_PLACEHOLDER' | translate"
+                  autocomplete="name"
+                />
+                @if (isFieldInvalid('name')) {
+                  <span class="error-msg" role="alert">
+                    <i class="bi bi-exclamation-circle"></i>
+                    {{ getFieldError('name') }}
+                  </span>
+                }
+              </div>
+
+              <div class="form-group" [class.has-error]="isFieldInvalid('email')">
+                <label for="email">{{ 'CONTACT.FORM.EMAIL' | translate }}</label>
+                <input
+                  id="email"
+                  type="email"
+                  formControlName="email"
+                  [placeholder]="'CONTACT.FORM.EMAIL_PLACEHOLDER' | translate"
+                  autocomplete="email"
+                />
+                @if (isFieldInvalid('email')) {
+                  <span class="error-msg" role="alert">
+                    <i class="bi bi-exclamation-circle"></i>
+                    {{ getFieldError('email') }}
+                  </span>
+                }
+              </div>
+            </div>
+            <div class="form-row">
+              <div class="form-group" [class.has-error]="isFieldInvalid('phone')">
+                <label for="phone">{{ 'CONTACT.FORM.PHONE' | translate }}</label>
+                <input
+                  id="phone"
+                  type="tel"
+                  formControlName="phone"
+                  [placeholder]="'CONTACT.FORM.PHONE_PLACEHOLDER' | translate"
+                  autocomplete="tel"
+                />
+                @if (isFieldInvalid('phone')) {
+                  <span class="error-msg" role="alert">
+                    <i class="bi bi-exclamation-circle"></i>
+                    {{ getFieldError('phone') }}
+                  </span>
+                }
+              </div>
+
+              <div class="form-group" [class.has-error]="isFieldInvalid('service')">
+                <label for="service">{{ 'CONTACT.FORM.SERVICE' | translate }}</label>
+                <select id="service" formControlName="service">
+                  <option value="" disabled>{{ 'CONTACT.FORM.SERVICE_PLACEHOLDER' | translate }}</option>
+                  @for (service of services; track service) {
+                    <option [value]="service | translate">{{ service | translate }}</option>
+                  }
+                </select>
+                @if (isFieldInvalid('service')) {
+                  <span class="error-msg" role="alert">
+                    <i class="bi bi-exclamation-circle"></i>
+                    {{ getFieldError('service') }}
+                  </span>
+                }
+              </div>
+            </div>
+
+            <div class="form-group full" [class.has-error]="isFieldInvalid('message')">
+              <label for="message">{{ 'CONTACT.FORM.MESSAGE' | translate }}</label>
+              <textarea
+                id="message"
+                formControlName="message"
+                [placeholder]="'CONTACT.FORM.MESSAGE_PLACEHOLDER' | translate"
+                rows="5"
+              ></textarea>
+              @if (isFieldInvalid('message')) {
+                <span class="error-msg" role="alert">
+                  <i class="bi bi-exclamation-circle"></i>
+                  {{ getFieldError('message') }}
+                </span>
+              }
+            </div>
+
+            @if (hasError()) {
+              <div class="form-error-banner" role="alert">
+                <i class="bi bi-x-circle"></i>
+                {{ 'CONTACT.FORM.ERROR' | translate }}
+              </div>
+            }
+
+            <button
+              class="btn-primary submit-btn"
+              type="submit"
+              [disabled]="isLoading()"
+            >
+              @if (isLoading()) {
+                <span class="spinner"></span>
+                {{ 'CONTACT.FORM.SUBMITTING' | translate }}
+              } @else {
+                {{ 'CONTACT.FORM.SUBMIT' | translate }}
+                <i class="bi bi-send-fill"></i>
+              }
+            </button>
+          </form>
+        }
+      </div>
+    </div>
+  </div>
+</section>

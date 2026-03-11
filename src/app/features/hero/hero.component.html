@@ -1,0 +1,98 @@
+<section id="home" class="hero-section" [attr.dir]="isRtl() ? 'rtl' : 'ltr'">
+  <div class="hero-bg">
+    <div class="bg-circle circle-1"></div>
+    <div class="bg-circle circle-2"></div>
+    <div class="bg-grid"></div>
+    <div class="floating-nodes" aria-hidden="true">
+      @for (n of [1,2,3,4,5]; track n) {
+        <div class="node" [style.animation-delay]="n * 0.4 + 's'"></div>
+      }
+    </div>
+  </div>
+
+  <div class="container">
+    <div class="hero-inner">
+
+      <div class="hero-content" dbAnimateOnScroll="fade-up">
+        <span class="hero-badge">
+          <span class="badge-dot"></span>
+          {{ 'HERO.BADGE' | translate }}
+        </span>
+
+        <h1 class="hero-title">
+          <span class="title-line">{{ 'HERO.TITLE_LINE1' | translate }}</span>
+          <span class="title-line">{{ 'HERO.TITLE_LINE2' | translate }}</span>
+          <span class="title-accent">{{ 'HERO.TITLE_ACCENT' | translate }}</span>
+        </h1>
+
+        <p class="hero-description">
+          {{ 'HERO.DESCRIPTION' | translate }}
+        </p>
+
+        <div class="hero-actions">
+          <button class="btn-primary" (click)="scrollToContact()" type="button">
+            {{ 'HERO.CTA_PRIMARY' | translate }}
+            <i class="bi bi-arrow-right"></i>
+          </button>
+          <button class="btn-outline" (click)="scrollToServices()" type="button">
+            {{ 'HERO.CTA_SECONDARY' | translate }}
+          </button>
+        </div>
+      </div>
+
+      <div class="hero-visual" dbAnimateOnScroll="fade-left" [animationDelay]="200">
+        <div class="visual-card main-card">
+          <div class="card-header">
+            <div class="card-dots">
+              <span></span><span></span><span></span>
+            </div>
+            <span class="card-title">Campaign Performance</span>
+          </div>
+          <div class="chart-bars">
+            @for (h of [60, 80, 45, 90, 70, 95, 75]; track $index) {
+              <div class="bar-wrap">
+                <div
+                  class="bar"
+                  [style.height.%]="h"
+                  [style.animation-delay]="$index * 0.1 + 's'"
+                ></div>
+              </div>
+            }
+          </div>
+        </div>
+
+        <div class="visual-card side-card top-card" dbAnimateOnScroll="zoom-in" [animationDelay]="400">
+          <i class="bi bi-graph-up-arrow"></i>
+          <div>
+            <strong>+{{ stats[0].displayValue }}{{ stats[0].suffix }}</strong>
+            <small>{{ 'HERO.STAT_CLIENTS' | translate }}</small>
+          </div>
+        </div>
+
+        <div class="visual-card side-card bottom-card" dbAnimateOnScroll="zoom-in" [animationDelay]="500">
+          <i class="bi bi-trophy-fill"></i>
+          <div>
+            <strong>{{ stats[3].displayValue }} Awards</strong>
+            <small>Industry Recognition</small>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="hero-stats" dbAnimateOnScroll="fade-up" [animationDelay]="300">
+      @for (stat of stats; track stat.labelKey) {
+        <div class="stat-item">
+          <span class="stat-number">{{ stat.displayValue }}{{ stat.suffix }}</span>
+          <span class="stat-label">{{ stat.labelKey | translate }}</span>
+        </div>
+        @if (!$last) {
+          <div class="stat-divider"></div>
+        }
+      }
+    </div>
+  </div>
+
+  <div class="scroll-indicator" aria-hidden="true">
+    <div class="scroll-line"></div>
+  </div>
+</section>

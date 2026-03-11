@@ -1,0 +1,45 @@
+<section id="about" class="about-section" [attr.dir]="isRtl() ? 'rtl' : 'ltr'">
+  <div class="container">
+    <div class="about-inner">
+
+      <div class="about-visual" dbAnimateOnScroll="fade-right">
+        <div class="visual-blob"></div>
+        <div class="about-image-wrap">
+          <div class="experience-badge">
+            <span class="exp-number">8+</span>
+            <span class="exp-text">Years of<br />Excellence</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="about-content" dbAnimateOnScroll="fade-left" [animationDelay]="150">
+        <span class="section-badge">{{ 'ABOUT.BADGE' | translate }}</span>
+        <h2 class="section-title">{{ 'ABOUT.TITLE' | translate }}</h2>
+        <p class="section-description">{{ 'ABOUT.DESCRIPTION' | translate }}</p>
+
+        <div class="features-list">
+          @for (feature of features; track feature.titleKey; let i = $index) {
+            <div
+              class="feature-item"
+              dbAnimateOnScroll="fade-up"
+              [animationDelay]="200 + i * 100"
+            >
+              <div class="feature-icon">
+                <i [class]="'bi ' + feature.icon"></i>
+              </div>
+              <div class="feature-body">
+                <h3>{{ feature.titleKey | translate }}</h3>
+                <p>{{ feature.descKey | translate }}</p>
+              </div>
+            </div>
+          }
+        </div>
+
+        <button class="btn-primary" (click)="scrollToContact()" type="button">
+          {{ 'ABOUT.CTA' | translate }}
+          <i class="bi bi-arrow-right"></i>
+        </button>
+      </div>
+    </div>
+  </div>
+</section>

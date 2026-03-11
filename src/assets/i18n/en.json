@@ -1,0 +1,110 @@
+{
+  "NAV": {
+    "HOME": "Home",
+    "ABOUT": "About Us",
+    "SERVICES": "Services",
+    "REVIEWS": "Reviews",
+    "CONTACT": "Contact",
+    "TOGGLE_LANG": "عربي"
+  },
+  "HERO": {
+    "BADGE": "Creative Marketing Agency",
+    "TITLE_LINE1": "We Help Brands",
+    "TITLE_LINE2": "Go Beyond",
+    "TITLE_ACCENT": "The Limit",
+    "DESCRIPTION": "We mix creativity and commitment to craft digital experiences that leave a lasting impact. From Social Media to Full-Scale Campaigns — we've got you covered.",
+    "CTA_PRIMARY": "Start Your Journey",
+    "CTA_SECONDARY": "View Our Work",
+    "STAT_CLIENTS": "Happy Clients",
+    "STAT_PROJECTS": "Projects Done",
+    "STAT_YEARS": "Years Experience",
+    "STAT_AWARDS": "Awards Won"
+  },
+  "ABOUT": {
+    "BADGE": "Who We Are",
+    "TITLE": "A Different Kind of Agency",
+    "DESCRIPTION": "Digital Bond was built on a simple belief — that great marketing comes from the perfect blend of bold creativity and relentless commitment. We don't just run campaigns, we build brand identities that resonate.",
+    "FEATURE_1_TITLE": "Data-Driven Strategy",
+    "FEATURE_1_DESC": "Every decision backed by analytics and real insights.",
+    "FEATURE_2_TITLE": "Creative Excellence",
+    "FEATURE_2_DESC": "Bold ideas executed with precision and purpose.",
+    "FEATURE_3_TITLE": "Full Transparency",
+    "FEATURE_3_DESC": "Clear reporting and honest communication always.",
+    "CTA": "Get to Know Us"
+  },
+  "SERVICES": {
+    "BADGE": "What We Do",
+    "TITLE": "Our Services",
+    "DESCRIPTION": "End-to-end digital solutions tailored to accelerate your brand growth.",
+    "SOCIAL_MEDIA": {
+      "TITLE": "Social Media",
+      "DESC": "Strategic content, community management and paid campaigns across all platforms."
+    },
+    "WEB_DEV": {
+      "TITLE": "Web Development",
+      "DESC": "High-performance websites and web applications built with modern technologies."
+    },
+    "MOBILE_APPS": {
+      "TITLE": "Mobile Apps",
+      "DESC": "Native and cross-platform mobile applications that deliver seamless experiences."
+    },
+    "SEO": {
+      "TITLE": "SEO Optimization",
+      "DESC": "Technical and content SEO strategies to dominate search rankings."
+    },
+    "INFLUENCERS": {
+      "TITLE": "Influencer Marketing",
+      "DESC": "Connect with the right voices to amplify your brand's reach and credibility."
+    },
+    "SMS": {
+      "TITLE": "SMS Campaigns",
+      "DESC": "Targeted SMS campaigns with high open rates that convert."
+    },
+    "MEDIA": {
+      "TITLE": "Media Production",
+      "DESC": "Cinematic videos, photography and creative content that tells your story."
+    }
+  },
+  "REVIEWS": {
+    "BADGE": "Testimonials",
+    "TITLE": "What Our Clients Say",
+    "DESCRIPTION": "Real words from the brands we've helped grow."
+  },
+  "CONTACT": {
+    "BADGE": "Get In Touch",
+    "TITLE": "Let's Build Something",
+    "TITLE_ACCENT": "Great Together",
+    "DESCRIPTION": "Ready to take your brand to the next level? Tell us about your project and we'll get back to you within 24 hours.",
+    "FORM": {
+      "NAME": "Full Name",
+      "NAME_PLACEHOLDER": "John Doe",
+      "EMAIL": "Email Address",
+      "EMAIL_PLACEHOLDER": "john@company.com",
+      "PHONE": "Phone Number",
+      "PHONE_PLACEHOLDER": "+20 1XX XXX XXXX",
+      "SERVICE": "Service Interested In",
+      "SERVICE_PLACEHOLDER": "Select a service",
+      "MESSAGE": "Your Message",
+      "MESSAGE_PLACEHOLDER": "Tell us about your project...",
+      "SUBMIT": "Send Message",
+      "SUBMITTING": "Sending...",
+      "SUCCESS": "Message sent successfully! We'll be in touch soon.",
+      "ERROR": "Something went wrong. Please try again.",
+      "REQUIRED": "This field is required",
+      "EMAIL_INVALID": "Please enter a valid email",
+      "PHONE_INVALID": "Please enter a valid phone number"
+    }
+  },
+  "FOOTER": {
+    "TAGLINE": "Mixing creativity and commitment to help brands go beyond the limit.",
+    "LINKS_TITLE": "Quick Links",
+    "SERVICES_TITLE": "Services",
+    "CONTACT_TITLE": "Contact",
+    "COPYRIGHT": "© 2024 Digital Bond. All rights reserved.",
+    "PRIVACY": "Privacy Policy",
+    "TERMS": "Terms of Service",
+    "ADDRESS": "Cairo, Egypt",
+    "EMAIL": "hello@digitalbond.com",
+    "PHONE": "+20 100 000 0000"
+  }
+}

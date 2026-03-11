@@ -1,0 +1,95 @@
+<section id="reviews" class="reviews-section" [attr.dir]="isRtl() ? 'rtl' : 'ltr'">
+  <div class="container">
+    <div class="section-header" dbAnimateOnScroll="fade-up">
+      <span class="section-badge">{{ 'REVIEWS.BADGE' | translate }}</span>
+      <h2 class="section-title">{{ 'REVIEWS.TITLE' | translate }}</h2>
+      <p class="section-description">{{ 'REVIEWS.DESCRIPTION' | translate }}</p>
+    </div>
+
+    <div class="reviews-slider" dbAnimateOnScroll="fade-up" [animationDelay]="150">
+      <div class="review-card">
+        <div class="quote-icon" aria-hidden="true">"</div>
+
+        <div class="review-stars" [attr.aria-label]="activeReview().rating + ' out of 5 stars'">
+          @for (s of stars(); track $index) {
+            <i class="bi bi-star-fill"></i>
+          }
+        </div>
+
+        <p class="review-text">
+          {{ currentLang() === 'ar' ? activeReview().textAr : activeReview().textEn }}
+        </p>
+
+        <div class="reviewer">
+          <div class="reviewer-avatar">{{ activeReview().avatar }}</div>
+          <div class="reviewer-info">
+            <strong>{{ activeReview().name }}</strong>
+            <span>{{ activeReview().role }}, {{ activeReview().company }}</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="slider-nav">
+        <button
+          class="nav-btn"
+          (click)="prev()"
+          type="button"
+          aria-label="Previous review"
+        >
+          <i class="bi bi-chevron-left"></i>
+        </button>
+
+        <div class="slider-dots" role="tablist" aria-label="Review navigation">
+          @for (review of reviews; track $index) {
+            <button
+              class="dot"
+              [class.active]="activeIndex() === $index"
+              (click)="goTo($index)"
+              role="tab"
+              [attr.aria-selected]="activeIndex() === $index"
+              [attr.aria-label]="'Review by ' + review.name"
+              type="button"
+            ></button>
+          }
+        </div>
+
+        <button
+          class="nav-btn"
+          (click)="next()"
+          type="button"
+          aria-label="Next review"
+        >
+          <i class="bi bi-chevron-right"></i>
+        </button>
+      </div>
+    </div>
+
+    <div class="reviews-grid">
+      @for (review of reviews; track review.name; let i = $index) {
+        <div
+          class="review-grid-card"
+          [class.active]="activeIndex() === i"
+          (click)="goTo(i)"
+          dbAnimateOnScroll="fade-up"
+          [animationDelay]="i * 100"
+        >
+          <div class="mini-stars">
+            @for (s of [1,2,3,4,5]; track s) {
+              <i class="bi bi-star-fill"></i>
+            }
+          </div>
+          <p class="mini-text">
+            "{{ (currentLang() === 'ar' ? review.textAr : review.textEn).slice(0, 80) }}..."
+          </p>
+          <div class="mini-reviewer">
+            <div class="mini-avatar">{{ review.avatar }}</div>
+            <div>
+              <strong>{{ review.name }}</strong>
+              <small>{{ review.company }}</small>
+            </div>
+          </div>
+        </div>
+      }
+    </div>
+  </div>
+</section>
