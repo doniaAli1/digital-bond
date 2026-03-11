@@ -42,6 +42,7 @@
           },
           "configurations": {
             "production": {
+              "baseHref": "/digital-bond/",
               "budgets": [
                 {
                   "type": "initial",
